@@ -1,0 +1,24 @@
+[
+  {
+    "from": "13513",
+    "to": "14",
+    "weight": 1234.0,
+    "cargoType": "standard",
+    "urgency": "normal",
+    "distance": 124.0,
+    "phone": "124",
+    "email": "dima.ua@gmail.com",
+    "id": "726ee1eb"
+  },
+  {
+    "from": "Одеса",
+    "to": "Львів",
+    "weight": 30.0,
+    "cargoType": "fragile",
+    "urgency": "express",
+    "distance": 600.0,
+    "phone": "+380 97 305 08 01",
+    "email": "dima.dls.ua@gmail.com",
+    "id": "145a77f8"
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "id": 2,
+    "model": "Mercedes Actros",
+    "type": "Рефрижератор",
+    "volume_m3": 75,
+    "capacity_t": 18,
+    "category": "cargo"
+  },
+  {
+    "id": 3,
+    "model": "Iveco Daily",
+    "type": "Мікроавтобус",
+    "volume_m3": 12,
+    "capacity_t": 3.5,
+    "category": "cargo"
+  },
+  {
+    "id": 4,
+    "model": "Renault Magnum",
+    "type": "Фура",
+    "volume_m3": 95,
+    "capacity_t": 21,
+    "category": "cargo"
+  },
+  {
+    "id": 5,
+    "model": "Scania P410",
+    "type": "Автовоз",
+    "volume_m3": null,
+    "capacity_t": 10,
+    "cars_capacity": 8,
+    "category": "car_transport"
+  },
+  {
+    "id": 6,
+    "model": "Mercedes Actros CarCarrier",
+    "type": "Автовоз",
+    "volume_m3": null,
+    "capacity_t": 12,
+    "cars_capacity": 10,
+    "category": "car_transport"
+  },
+  {
+    "id": 7,
+    "model": "Volvo FM CarTransporter",
+    "type": "Автовоз",
+    "volume_m3": null,
+    "capacity_t": 9,
+    "cars_capacity": 7,
+    "category": "car_transport"
+  }
+]

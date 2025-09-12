@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <title>Автомобільні перевезення</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+<header class="container">
+    <nav class="nav">
+        <div class="brand">AutoLogistics</div>
+        <ul class="menu">
+            <li><a href="#services">Послуги</a></li>
+            <li><a href="#order">Заявка</a></li>
+            <li><a href="#fleet">Парк</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <h1>Автомобільні перевезення по Україні та ЄС</h1>
+        <p>Безпечно, вчасно, прозоро. Оформіть заявку онлайн.</p>
+    </div>
+</header>
+
+<main>
+    <section id="services" class="container section">
+        <h2>Послуги</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Перевезення транспорту</h3>
+                <p>Оптимальна ціна для ваших машин.</p>
+            </div>
+            <div class="card">
+                <h3>Повне завантаження</h3>
+                <p>FTL для термінових та обʼємних відправлень без перевантажень.</p>
+            </div>
+            <div class="card">
+                <h3>Міжнародні рейси</h3>
+                <p>Перевезення з митним супроводом, страхуванням та трекінгом.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="container section">
+        <h2>Оформити заявку</h2>
+        <form id="orderForm" class="form">
+            <div class="form-row">
+                <label>Звідки
+                    <input type="text" id="from" placeholder="Одеса" required>
+                </label>
+                <label>Куди
+                    <input type="text" id="to" placeholder="Львів" required>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>Вага, кг
+                    <input type="number" id="oWeight" min="1" required>
+                </label>
+                <label>Тип вантажу
+                    <select id="oCargo" required>
+                        <option value="standard">Стандартний</option>
+                        <option value="fragile">Крихкий</option>
+                        <option value="temperature">Температурний</option>
+                        <option value="hazardous">Небезпечний</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>Терміновість
+                    <select id="oUrgency" required>
+                        <option value="normal">Звичайна</option>
+                        <option value="express">Експрес</option>
+                    </select>
+                </label>
+                <label>Відстань, км
+                    <input type="number" id="oDistance" min="1" required>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>Контактний телефон
+                    <input type="tel" id="phone" placeholder="+380..." required>
+                </label>
+                <label>Email
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </label>
+            </div>
+            <button type="submit" class="btn">Надіслати</button>
+        </form>
+    </section>
+
+    <section id="fleet" class="container section">
+        <h2>Автопарк</h2>
+        <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr><th>Модель</th><th>Тип</th><th>Обʼєм, м³</th><th>Вантажопідйомність, т</th></tr>
+              </thead>
+              <tbody id="fleetBody"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer class="container footer">
+    <span>© 2025 AutoLogistics</span>
+    <span>Політика конфіденційності</span>
+</footer>
+
+<script src="static/js/app.js"></script>
+</body>
+</html>
