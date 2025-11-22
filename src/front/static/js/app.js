@@ -126,8 +126,41 @@ function initHeroSlider() {
   requestAnimationFrame(animate);
 }
 
+function initDropdownMenu() {
+    const dropdownBtn = document.getElementById("dropdownBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    if (!dropdownBtn || !dropdownMenu) return;
+
+    // Toggle dropdown on button click
+    dropdownBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", (e) => {
+        if (!e.target.matches('.dropdown-toggle')) {
+            const dropdowns = document.querySelectorAll(".dropdown-content");
+            dropdowns.forEach(dropdown => {
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        }
+    });
+
+    // Close dropdown on Escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && dropdownMenu.classList.contains("show")) {
+            dropdownMenu.classList.remove("show");
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     loadFleet();
     document.getElementById("orderForm")?.addEventListener("submit", submitOrder);
     initHeroSlider();
+    initDropdownMenu();
 });

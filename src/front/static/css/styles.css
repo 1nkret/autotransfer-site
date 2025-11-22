@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -49,18 +53,39 @@ a {
   margin: 0;
 }
 
+.menu > li {
+  position: relative;
+}
+
+/* Заповнюємо gap між кнопкою і підменю для плавного hover */
+.menu > li::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  display: none;
+}
+
+.menu > li:hover::after {
+  display: block;
+}
+
 .menu a {
+  display: block;
   padding: 8px 10px;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
+  transition: background 0.3s ease;
 }
 
-.menu a:hover {
+.menu > li > a:hover {
   background: var(--line);
 }
 
-.menu a::after {
+.menu > li > a::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -70,8 +95,85 @@ a {
   background: var(--accent);
   transition: width 0.3s ease;
 }
-.menu a:hover::after {
+.menu > li > a:hover::after {
   width: 100%;
+}
+
+/* Dropdown button styles */
+.dropdown-toggle {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  transition: background 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background: var(--line);
+}
+
+/* Submenu styles */
+.submenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 200px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 0;
+  list-style: none;
+  margin: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease;
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu a {
+  padding: 10px 16px;
+  border-radius: 0;
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.submenu a:hover {
+  background: var(--line);
+  color: var(--accent);
+}
+
+.submenu a::after {
+  display: none;
+}
+
+/* Show submenu on hover */
+.menu > li:hover > .submenu {
+  display: block;
+}
+
+/* Show submenu when .show class is added (for JS toggle) */
+.submenu.show {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 header {
@@ -247,6 +349,18 @@ input::placeholder {
 
   .hero h1 {
     font-size: 28px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .submenu {
+    position: static;
+    margin-left: 16px;
+    box-shadow: none;
+    border-left: 2px solid var(--accent);
   }
 }
 

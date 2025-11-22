@@ -11,9 +11,29 @@
     <nav class="nav">
         <div class="brand">AutoLogistics</div>
         <ul class="menu">
-            <li><a href="#services">Послуги</a></li>
+            <li><a href="#services">Послуги</a>
+                <ul class="submenu">
+                    <li><a href="#transport">Перевезення транспорту</a></li>
+                    <li><a href="#ftl">Повне завантаження</a></li>
+                    <li><a href="#international">Міжнародні рейси</a></li>
+                </ul>
+            </li>
             <li><a href="#order">Заявка</a></li>
-            <li><a href="#fleet">Парк</a></li>
+            <li><a href="#fleet">Парк</a>
+                <ul class="submenu">
+                    <li><a href="#trucks">Вантажівки</a></li>
+                    <li><a href="#refrigerators">Рефрижератори</a></li>
+                    <li><a href="#trailers">Причепи</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="dropdown-toggle" id="dropdownBtn">Про компанію</button>
+                <ul class="submenu dropdown-content" id="dropdownMenu">
+                    <li><a href="#about">Про нас</a></li>
+                    <li><a href="#team">Команда</a></li>
+                    <li><a href="#contacts">Контакти</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
     <div class="hero">
@@ -26,17 +46,20 @@
     <section id="services" class="container section">
         <h2>Послуги</h2>
         <div class="grid-3">
-            <div class="card">
+            <div class="card" id="transport">
                 <h3>Перевезення транспорту</h3>
                 <p>Оптимальна ціна для ваших машин.</p>
+                <p>Спеціалізуємось на транспортуванні легкових та вантажних автомобілів по всій Україні та за кордон.</p>
             </div>
-            <div class="card">
+            <div class="card" id="ftl">
                 <h3>Повне завантаження</h3>
                 <p>FTL для термінових та обʼємних відправлень без перевантажень.</p>
+                <p>Цілковита завантаження вантажівки тільки вашим товаром гарантує швидку доставку та збереженість вантажу.</p>
             </div>
-            <div class="card">
+            <div class="card" id="international">
                 <h3>Міжнародні рейси</h3>
                 <p>Перевезення з митним супроводом, страхуванням та трекінгом.</p>
+                <p>Організовуємо доставку до країн ЄС з повним митним оформленням та страхуванням вантажу.</p>
             </div>
         </div>
     </section>
@@ -97,6 +120,56 @@
               </thead>
               <tbody id="fleetBody"></tbody>
             </table>
+        </div>
+
+        <div class="subsection">
+            <h3 id="trucks">Вантажівки</h3>
+            <p>У нашому парку є сучасні вантажівки Mercedes, MAN та Volvo, які забезпечують надійну та швидку доставку вантажів.</p>
+
+            <h3 id="refrigerators">Рефрижератори</h3>
+            <p>Спеціалізовані автомобілі з холодильним обладнанням для перевезення швидкопсувних та температурно-чутливих товарів від -25°C до +25°C.</p>
+
+            <h3 id="trailers">Причепи</h3>
+            <p>Різноманітні причепи та напівпричепи для перевезення негабаритних вантажів, будівельних матеріалів та спецтехніки.</p>
+        </div>
+    </section>
+
+    <section id="about" class="container section">
+        <h2>Про нас</h2>
+        <div class="card">
+            <p>AutoLogistics — це команда професіоналів з багаторічним досвідом у сфері автомобільних перевезень. Ми працюємо з 2015 року і за цей час виконали понад 10,000 успішних доставок.</p>
+            <p>Наша місія — забезпечити найвищу якість логістичних послуг, дотримуючись термінів та гарантуючи безпеку вантажів наших клієнтів.</p>
+        </div>
+    </section>
+
+    <section id="team" class="container section">
+        <h2>Наша команда</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Дмитро Малихін</h3>
+                <p><strong>Генеральний директор, IT-Спеціаліст</strong></p>
+                <p>5 років досвіду в айті</p>
+            </div>
+            <div class="card">
+                <h3>Дмитро Малихін</h3>
+                <p><strong>Керівник відділу логістики</strong></p>
+                <p>Організація міжнародних перевезень</p>
+            </div>
+            <div class="card">
+                <h3>Дмитро Малихін</h3>
+                <p><strong>Технічний директор</strong></p>
+                <p>Управління автопарком та обслуговування</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="container section">
+        <h2>Контакти</h2>
+        <div class="card">
+            <p><strong>Адреса:</strong> м. Одеса, проспект Шевченка, 1</p>
+            <p><strong>Телефон:</strong> +380 44 123 45 67</p>
+            <p><strong>Email:</strong> info@autologistics.ua</p>
+            <p><strong>Графік роботи:</strong> Пн-Пт 9:00-18:00, Сб-Нд вихідні</p>
         </div>
     </section>
 </main>

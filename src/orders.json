@@ -20,5 +20,16 @@
     "phone": "+380 97 305 08 01",
     "email": "dima.dls.ua@gmail.com",
     "id": "145a77f8"
+  },
+  {
+    "from": "Одеса",
+    "to": "Львів",
+    "weight": 20.0,
+    "cargoType": "fragile",
+    "urgency": "express",
+    "distance": 600.0,
+    "phone": "+380 97 305 08 01",
+    "email": "dima.dls.ua@gmail.com",
+    "id": "bd322e36"
   }
 ]
