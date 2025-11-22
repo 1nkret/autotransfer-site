@@ -111,6 +111,96 @@
         </form>
     </section>
 
+    <section id="calculator" class="container section">
+        <h2>Калькулятор вартості перевезення</h2>
+        <div class="card">
+            <form id="calcForm" class="form">
+                <div class="form-row">
+                    <label>Відстань, км
+                        <input type="number" id="calcDistance" min="1" max="5000" value="100" required>
+                    </label>
+                    <label>Вага вантажу, кг
+                        <input type="number" id="calcWeight" min="1" max="20000" value="500" required>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>Тип вантажу
+                        <select id="calcCargo">
+                            <option value="1">Стандартний (×1.0)</option>
+                            <option value="1.3">Крихкий (×1.3)</option>
+                            <option value="1.5">Температурний (×1.5)</option>
+                            <option value="1.8">Небезпечний (×1.8)</option>
+                        </select>
+                    </label>
+                    <label>Терміновість
+                        <select id="calcUrgency">
+                            <option value="1">Звичайна (×1.0)</option>
+                            <option value="1.5">Експрес (×1.5)</option>
+                            <option value="2">Термінова (×2.0)</option>
+                        </select>
+                    </label>
+                </div>
+                <button type="button" class="btn" onclick="calculatePrice()">Розрахувати вартість</button>
+                <div id="calcResult" class="calc-result"></div>
+            </form>
+        </div>
+    </section>
+
+    <section id="game" class="container section">
+        <h2>Підбір автомобіля - Інтерактивна форма</h2>
+        <div class="card">
+            <form id="gameForm" class="form">
+                <div class="form-row">
+                    <label>Виберіть автомобіль:
+                        <select id="gameAuto" onchange="updateGameResult()">
+                            <option value="">-- Оберіть --</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Nissan">Nissan</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Виберіть вашу стать:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Чоловічий" onchange="updateGameResult()">
+                            <span>Чоловічий</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Жіночий" onchange="updateGameResult()">
+                            <span>Жіночий</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Виберіть ваші інтереси:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="interestSport" value="Спорт" onchange="updateGameResult()">
+                            <span>Спорт</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="interestMusic" value="Музика" onchange="updateGameResult()">
+                            <span>Музика</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Бюджет (від 0 до 100 тис. грн): <span id="budgetValue">50</span>
+                    </label>
+                    <input type="range" id="gameBudget" min="0" max="100" value="50" oninput="updateBudgetDisplay(); updateGameResult()">
+                </div>
+
+                <div id="gameResult" class="game-result"></div>
+            </form>
+        </div>
+    </section>
+
     <section id="fleet" class="container section">
         <h2>Автопарк</h2>
         <div class="table-wrap">

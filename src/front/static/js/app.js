@@ -158,6 +158,113 @@ function initDropdownMenu() {
     });
 }
 
+// Функція для калькулятора вартості перевезення
+function calculatePrice() {
+    const distance = Number(document.getElementById("calcDistance").value);
+    const weight = Number(document.getElementById("calcWeight").value);
+    const cargoType = Number(document.getElementById("calcCargo").value);
+    const urgency = Number(document.getElementById("calcUrgency").value);
+
+    // Валідація
+    if (!distance || distance < 1) {
+        alert("Будь ласка, введіть коректну відстань!");
+        return;
+    }
+    if (!weight || weight < 1) {
+        alert("Будь ласка, введіть коректну вагу!");
+        return;
+    }
+
+    // Базова ціна: 5 грн за км + 0.5 грн за кг
+    let basePrice = (distance * 5) + (weight * 0.5);
+
+    // Застосування коефіцієнтів
+    let totalPrice = basePrice * cargoType * urgency;
+
+    // Виведення результату
+    const resultDiv = document.getElementById("calcResult");
+    resultDiv.innerHTML = `
+        <h3>Результат розрахунку:</h3>
+        <p><strong>Відстань:</strong> ${distance} км</p>
+        <p><strong>Вага:</strong> ${weight} кг</p>
+        <p><strong>Базова вартість:</strong> ${basePrice.toFixed(2)} грн</p>
+        <p><strong>Коефіцієнт типу вантажу:</strong> ×${cargoType}</p>
+        <p><strong>Коефіцієнт терміновості:</strong> ×${urgency}</p>
+        <p class="price-result"><strong>ЗАГАЛЬНА ВАРТІСТЬ: ${totalPrice.toFixed(2)} грн</strong></p>
+    `;
+    resultDiv.style.display = "block";
+}
+
+// Функція для оновлення відображення бюджету
+function updateBudgetDisplay() {
+    const budget = document.getElementById("gameBudget").value;
+    document.getElementById("budgetValue").textContent = budget;
+}
+
+// Функція для оновлення результату гри
+function updateGameResult() {
+    const auto = document.getElementById("gameAuto").value;
+    const genderRadio = document.querySelector('input[name="gender"]:checked');
+    const gender = genderRadio ? genderRadio.value : null;
+    const budget = Number(document.getElementById("gameBudget").value);
+
+    // Збір інтересів
+    const interests = [];
+    if (document.getElementById("interestSport").checked) {
+        interests.push("Спорт");
+    }
+    if (document.getElementById("interestMusic").checked) {
+        interests.push("Музика");
+    }
+
+    // Перевірка заповнення
+    if (!auto || !gender) {
+        document.getElementById("gameResult").innerHTML =
+            '<p style="color: #f88;">Будь ласка, оберіть автомобіль та вкажіть стать!</p>';
+        return;
+    }
+
+    // Логіка підбору рекомендації
+    let recommendation = "";
+    let suitability = 0;
+
+    // Аналіз відповідності автомобіля
+    if (auto === "BMW") {
+        suitability = 80;
+        recommendation = "BMW - престижний вибір для динамічної їзди!";
+        if (interests.includes("Спорт")) suitability += 10;
+        if (budget >= 70) suitability += 10;
+    } else if (auto === "Ford") {
+        suitability = 70;
+        recommendation = "Ford - надійний американський автомобіль!";
+        if (interests.includes("Музика")) suitability += 10;
+        if (budget >= 40 && budget <= 70) suitability += 15;
+    } else if (auto === "Nissan") {
+        suitability = 75;
+        recommendation = "Nissan - відмінне співвідношення ціни та якості!";
+        if (budget <= 50) suitability += 15;
+        if (interests.includes("Спорт")) suitability += 5;
+    }
+
+    // Формування результату
+    const resultDiv = document.getElementById("gameResult");
+    resultDiv.innerHTML = `
+        <h3>Результат підбору:</h3>
+        <p><strong>Обраний автомобіль:</strong> ${auto}</p>
+        <p><strong>Стать:</strong> ${gender}</p>
+        <p><strong>Інтереси:</strong> ${interests.length > 0 ? interests.join(", ") : "Не вказано"}</p>
+        <p><strong>Бюджет:</strong> ${budget} тис. грн</p>
+        <div class="recommendation">
+            <p><strong>${recommendation}</strong></p>
+            <p>Відповідність вашим побажанням: <strong>${suitability}%</strong></p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: ${suitability}%"></div>
+            </div>
+        </div>
+    `;
+    resultDiv.style.display = "block";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     loadFleet();
     document.getElementById("orderForm")?.addEventListener("submit", submitOrder);
